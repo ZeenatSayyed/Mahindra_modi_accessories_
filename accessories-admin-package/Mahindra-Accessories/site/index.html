@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mahindra Modi Accessories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Lato:wght@700;900&display=swap">
+<style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Layout: black-and-white base with red as the brand colour and green reserved for electric cars. Phone-first, one column.
+   Home (EV / PV) -> models -> category chips + product grid -> detail page. Dark is the default look; light follows the system setting. */
+:root{
+  --bg:#050506; --surface:#0f1013; --surface2:#17191d; --ink:#f4f5f7; --muted:#9aa0ab; --line:#24272d; --silver:#c9ced6;
+  --red:#ff4452; --green:#37e98c; --red-fill:#b80f26; --green-fill:#0b8a47;
+  --accent:var(--red); --accent-fill:var(--red-fill); --on-accent:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --brandfont:"Lato","IBM Plex Sans",system-ui,sans-serif;
+  color-scheme:dark;
+}
+body[data-kind="ev"]{--accent:var(--green); --accent-fill:var(--green-fill)}
+body[data-kind="pv"]{--accent:var(--red); --accent-fill:var(--red-fill)}
+*{box-sizing:border-box}
+body{background:radial-gradient(900px 380px at 50% -140px,#1b1e25 0%,rgba(5,5,6,0) 70%) no-repeat,var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;padding-inline:16px;padding-block:0 48px;border-top:3px solid var(--accent-fill)}
+.wrap{max-width:900px;margin-inline:auto}
+header.top{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px 12px;padding-block:12px;position:sticky;top:env(safe-area-inset-top,0px);background:linear-gradient(#000,#060607);border-bottom:1px solid #2f333b;box-shadow:0 8px 24px #0008;margin-inline:-16px;padding-inline:16px;z-index:5}
+.logos{display:flex;align-items:center;gap:10px;flex:none}
+.logos img{height:46px;width:auto;display:block}
+.logos .sep{width:1px;height:34px;background:linear-gradient(#0000,#8a909b,#0000)}
+.brand{justify-self:end;text-align:right;min-width:0;font-family:var(--brandfont);font-weight:900;font-size:clamp(17px,5vw,24px);line-height:1.05;color:#fff}
+.brand small{display:block;font-family:var(--brandfont);font-weight:700;font-size:clamp(8.5px,2.5vw,11px);letter-spacing:.02em;color:#d6d6da;margin-top:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.back{grid-column:1/-1;justify-self:start;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:8px 14px;font-weight:600}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance;font-weight:800;letter-spacing:.01em}
+h1{font-size:clamp(46px,11vw,84px)} h2{font-size:clamp(34px,7vw,48px)} h3{font-size:22px}
+h1 em,h2 em{font-style:normal;color:var(--red)}
+h1,h2{background:linear-gradient(180deg,#fff 30%,#b9bec8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h1 em,h2 em{-webkit-text-fill-color:var(--red)}
+.lede{color:var(--muted);margin:12px 0 26px;max-width:48ch}
+.choices{display:grid;gap:14px}
+@media (min-width:700px){.choices{grid-template-columns:1fr 1fr}}
+.choice{display:flex;flex-direction:column;gap:6px;min-height:250px;text-align:left;border:0;border-radius:6px;padding:22px 20px;min-height:230px;color:#fff;position:relative;overflow:hidden;isolation:isolate}
+.choice.ev{box-shadow:inset 0 1px 0 #ffffff1c,0 14px 34px #000a;background:linear-gradient(145deg,#040a07 15%,#0a5f2e 120%);border:1px solid #1c5a37;border-top:4px solid var(--green)}
+.choice.pv{box-shadow:inset 0 1px 0 #ffffff1c,0 14px 34px #000a;background:linear-gradient(145deg,#0a0405 15%,#7d0d1c 120%);border:1px solid #64202a;border-top:4px solid var(--red-fill)}
+.choice img.lg{position:static;align-self:flex-start;width:auto;height:54px;max-width:none;right:auto;bottom:auto;mask-image:none;-webkit-mask-image:none;z-index:1;margin-bottom:10px}
+.choice.pv img.lg{height:64px}
+.choice .tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em}
+.choice .name{font-family:var(--display);font-size:46px;font-weight:800;text-transform:uppercase;line-height:.95}
+.choice .sub{max-width:26ch;opacity:.95}
+.choice .count{margin-top:auto;font-weight:600}
+.choice img{position:absolute;right:-8px;bottom:-6px;width:56%;max-width:300px;z-index:-1;mask-image:linear-gradient(90deg,transparent,#000 35%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%)}
+.cars{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.car{background:linear-gradient(180deg,#14161a,var(--surface));border:1px solid #2a2d34;border-top:4px solid var(--accent-fill);border-radius:6px;padding:0;text-align:left;overflow:hidden;display:flex;flex-direction:column}
+.car .art{aspect-ratio:16/10;background:#000;overflow:hidden}
+.car .art img{width:100%;height:100%;object-fit:cover;display:block}
+.car .meta{padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px}
+.car .nm{font-family:var(--display);font-size:32px;font-weight:800;text-transform:uppercase;line-height:1}
+.car .sp{color:var(--muted);font-size:13px}
+.car .go{margin-top:8px;font-weight:600;color:var(--accent);font-size:14px}
+.hero-car{display:grid;grid-template-columns:1fr 1.15fr;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent-fill);border-radius:6px;overflow:hidden;margin-bottom:14px}
+.hero-car .txt{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.hero-car p{margin:0;color:var(--muted);font-size:13px}
+.hero-car img{width:100%;height:100%;min-height:140px;object-fit:cover;display:block;background:#000}
+.ppf{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px;margin-bottom:14px}
+.ppf .pv-thumb{position:relative;aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:#000}
+.ppf .pv-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+.ppf .play{position:absolute;inset:0;display:grid;place-items:center}
+.ppf .play span{width:34px;height:34px;border-radius:50%;background:var(--accent-fill);color:#fff;display:grid;place-items:center;font-size:14px;padding-left:2px}
+.ppf b{display:block;font-family:var(--display);font-size:21px;text-transform:uppercase;line-height:1.05}
+.ppf small{color:var(--muted)}
+.vwrap{margin-bottom:14px}
+video{width:100%;border-radius:6px;background:#000;display:block;max-height:62vh}
+.search{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:12px 14px;font:inherit;margin-bottom:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-block:4px 14px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;white-space:nowrap}
+.chip small{color:var(--muted);margin-left:5px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--accent-fill);border-color:var(--accent-fill);color:#fff}
+.chip[aria-pressed="true"] small{color:inherit;opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{background:linear-gradient(180deg,#14161a,var(--surface));border:1px solid #2a2d34;border-radius:6px;overflow:hidden;text-align:left;padding:0;display:flex;flex-direction:column}
+.card .ph{aspect-ratio:4/3;background:var(--surface2);overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.card .bd{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.card .t{font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+.card .pn{font-family:var(--mono);font-size:11.5px;color:var(--muted);overflow-wrap:anywhere}
+.group-h{font-family:var(--display);font-size:26px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin:24px 0 10px;display:flex;align-items:center;gap:10px}
+.group-h::before{content:"";width:10px;height:22px;background:var(--accent-fill);transform:skewX(-18deg)}
+.group-h small{font-family:var(--body);font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0}
+.empty,.loading{color:var(--muted);padding:34px 0;text-align:center}
+.detail h2{margin-block:8px 4px}
+.pill{display:inline-block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -16px;padding-inline:16px;scrollbar-width:none}
+.gallery figure{flex:0 0 min(100%,540px);margin:0;scroll-snap-align:center;background:var(--surface2);border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3}
+.gallery.kit figure{flex-basis:min(100%,800px);aspect-ratio:16/9}
+.gallery img{width:100%;height:100%;object-fit:contain;display:block}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.pn{font-family:var(--mono);white-space:nowrap}
+details{background:var(--surface);border:1px solid var(--line);border-radius:6px;margin-top:10px}
+summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--accent);line-height:1}
+details[open] summary::after{content:"–"}
+details ul{margin:0;padding:0 14px 14px 32px;display:grid;gap:6px}
+.note{border-left:4px solid var(--accent-fill);background:var(--surface);border-radius:4px;padding:10px 14px;margin-top:12px;font-size:14px}
+.fine{font-size:12.5px;color:var(--muted);margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
+.also{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;align-items:center;font-size:14px;color:var(--muted)}
+.also button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 13px;font-weight:600;font-size:13px}
+.contact{margin-top:32px;border-top:3px solid var(--accent-fill);border:1px solid #2a2d34;border-top-width:3px;background:linear-gradient(180deg,#14161a,var(--surface));border-radius:6px;padding:18px 16px}
+.contact h3{font-size:26px;margin-bottom:4px}
+.contact p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.contact .calls,.contact .branches{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.contact a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:6px;padding:12px 16px;font-weight:700;flex:1;min-width:150px;text-align:center}
+.contact a.call{background:var(--accent-fill);color:#fff;font-family:var(--mono);font-size:15px}
+.contact a.map{border:1px solid var(--line);color:var(--ink);background:var(--bg)}
+.btn{border:0;border-radius:6px;padding:13px 18px;font-weight:700;background:linear-gradient(180deg,color-mix(in srgb,var(--accent-fill) 88%,#fff),var(--accent-fill));box-shadow:inset 0 1px 0 #ffffff30;color:#fff;flex:1;min-width:150px}
+.row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media (max-width:480px){.hero-car{grid-template-columns:1fr}.hero-car img{min-height:0;aspect-ratio:16/9}.ppf{grid-template-columns:96px 1fr}}
+.offers{margin:2px 0 24px}
+.otrack{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+.offer{flex:0 0 min(88%,520px);scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--red-fill);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.otrack.one .offer{flex-basis:100%}
+.oimg img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000}
+.obd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.otag{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.obd h3{font-size:28px}
+.obd p{margin:0;color:var(--muted);white-space:pre-line}
+.obtn{align-self:flex-start;background:var(--red-fill);color:#fff;text-decoration:none;font-weight:700;border-radius:6px;padding:10px 14px;margin-top:4px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logos"><img src="media/logo-pv.png" alt="Mahindra Sport Utility Vehicles"><span class="sep"></span><img src="media/logo-ev.png" alt="Mahindra Electric SUVs"></div>
+    <div class="brand" id="brand"></div>
+    <button class="back" id="back" hidden>&larr; Back</button>
+  </header>
+  <main id="app"></main>
+  <section class="contact" id="contact" hidden></section>
+  <p class="fine">Images are for illustration only. The actual product may differ from the image.</p>
+</div>
+
+<script src="showroom.js"></script>
+<script src="site-data.js"></script>
+<script src="meta.js"></script>
+<script>
+/* Showroom details come from showroom.js (edit that file). */
+const SHOP = Object.assign({name:"Your Showroom Name",tagline:"",phone:"",address:"",map:""}, window.SHOP || {});
+const META = window.META, CATS = META.cats, LIST = META.cars;
+const BY = Object.fromEntries(LIST.map(c => [c.key, c]));
+const $ = s => document.querySelector(s);
+const app = $("#app"), backBtn = $("#back");
+const esc0 = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function applyShop(){
+$("#brand").innerHTML = esc0(SHOP.name) + (SHOP.tagline ? "<small>( " + esc0(SHOP.tagline) + " )</small>" : "");
+document.title = SHOP.name ? SHOP.name + " Accessories" : document.title;
+(function contact(){
+  const phones = (SHOP.phones && SHOP.phones.length ? SHOP.phones : (SHOP.phone ? [SHOP.phone] : [])).filter(Boolean);
+  const tel = p => String(p).replace(/[^+\d]/g,"");
+  const branches = (SHOP.branches || []).filter(b => b && b.name);
+  if (!SHOP.name && !phones.length && !branches.length) return;
+  const el = $("#contact"); el.hidden = false;
+  el.innerHTML = "<h3>Visit " + esc0(SHOP.name || "us") + "</h3>" +
+    (phones.length ? "<p>For more details call</p><div class=\"calls\">" + phones.map(p => '<a class="call" href="tel:' + tel(p) + '">' + esc0(p) + "</a>").join("") + "</div>" : "") +
+    (branches.length ? "<p>Find us in</p><div class=\"branches\">" + branches.map(b => '<a class="map" href="' + esc0(b.map || ("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent((SHOP.name||"") + " " + b.name))) + '" target="_blank" rel="noopener">' + esc0(b.name) + " &middot; Open in Maps</a>").join("") + "</div>" : "");
+})();
+}
+applyShop();
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const IMG = p => (window.IMGS && window.IMGS[p]) || p;
+const KINDS = { ev:{label:"Electric cars", short:"Electric", tag:"EV"}, pv:{label:"Petrol & diesel cars", short:"Petrol & Diesel", tag:"PV"} };
+let state = { view:"home", kind:null, car:null, cat:"All", q:"", item:null };
+const items = k => (window.CARDATA && window.CARDATA[k]) || [];
+const find = (k,id) => items(k).find(i => i.id === id);
+const SD = window.SITEDATA || {};
+const STATIC_KEYS = new Set(LIST.map(c => c.key));
+const CLOUDITEMS = {}; let OFFERS = []; const merged = {}; let HIDDEN = new Set();
+const su = u => /^(https?:\/\/|uploads\/)/i.test(u || "") ? u : "";
+const lines = t => String(t || "").split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+const cloudReady = Promise.resolve([
+  (SD.offers || []).filter(x => x.active !== false).slice().sort((p, q) => String(q.created_at || "").localeCompare(String(p.created_at || ""))),
+  (SD.cars || []).filter(x => x.active !== false),
+  (SD.items || []).filter(x => x.active !== false).slice().sort((p, q) => (p.num || 0) - (q.num || 0)),
+  SD.settings || []]).then(([o,c,it,st]) => {
+    OFFERS = o;
+    const setv = k => { const r = (st || []).find(x => x.key === k); return r && r.value; };
+    const shop = setv("shop"); if (shop && typeof shop === "object") { Object.assign(SHOP, shop); applyShop(); }
+    const hid = setv("hidden") || {};
+    HIDDEN = new Set(hid.ids || []);
+    (hid.ids || []).forEach(id => { const k = id.slice(0, id.lastIndexOf("-")), pg = Number(id.slice(id.lastIndexOf("-") + 1)); if (BY[k] && pg < 1000) BY[k].count--; });
+    (hid.cars || []).forEach(k => { const i = LIST.findIndex(c => c.key === k); if (i >= 0) LIST.splice(i, 1); delete BY[k]; });
+    c.forEach(x => { if (!BY[x.key]) { const car = {key:x.key, kind:x.kind, name:x.name, tag:x.tag || "", count:0, hero:su(x.hero_url)}; LIST.push(car); BY[x.key] = car; } });
+    it.forEach(x => {
+      if (!BY[x.car_key]) return;
+      const num = 1000 + Number(x.num);
+      const parts = lines(x.parts).map(l => { const p = l.split("|").map(s => s.trim()); return {no:p[0] || "", desc:p[1] || "", fit:p[2] || ""}; }).filter(p => p.no || p.desc);
+      const secs = [], f = lines(x.features), a = lines(x.advantages);
+      if (f.length) secs.push({h:"Features", items:f}); if (a.length) secs.push({h:"Advantages", items:a});
+      (CLOUDITEMS[x.car_key] = CLOUDITEMS[x.car_key] || []).push({id:x.car_key + "-" + num, page:num, cat:CATS.includes(x.cat) ? x.cat : "Care & Lifestyle", title:x.title, secs, notes:lines(x.notes), parts, imgs:(x.images || []).map(su).filter(Boolean), aside:[], also:[]});
+      BY[x.car_key].count++;
+    });
+  });
+const todayStr = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); };
+const fmtD = s => { const [y,m,d] = String(s).split("-").map(Number); return new Date(y, m-1, d).toLocaleDateString("en-IN", {day:"numeric", month:"short"}); };
+function offersHtml(){
+  const t = todayStr();
+  const live = OFFERS.filter(o => o.active !== false && (!o.starts_at || o.starts_at <= t) && (!o.ends_at || o.ends_at >= t));
+  if (!live.length) return "";
+  return `<section class="offers" aria-label="Offers"><div class="otrack${live.length===1 ? " one" : ""}">${live.map(o => `<article class="offer">
+    ${su(o.image_url) ? `<a class="oimg" href="${esc(su(o.image_url))}" target="_blank" rel="noopener"><img src="${esc(su(o.image_url))}" alt="${esc(o.title)}" loading="lazy"></a>` : ""}
+    <div class="obd"><span class="otag">Offer${o.ends_at ? " &middot; Ends " + esc(fmtD(o.ends_at)) : ""}</span><h3>${esc(o.title)}</h3>${o.body ? `<p>${esc(o.body)}</p>` : ""}${su(o.pdf_url) ? `<a class="obtn" href="${esc(su(o.pdf_url))}" target="_blank" rel="noopener">View offer details (PDF)</a>` : ""}</div></article>`).join("")}</div></section>`;
+}
+
+function loadScript(key){
+  return new Promise((res, rej) => {
+    const s = document.createElement("script");
+    s.src = "car-" + key + ".js"; s.onload = res; s.onerror = () => rej(new Error("load"));
+    document.head.appendChild(s);
+  });
+}
+async function ensure(key){
+  if (STATIC_KEYS.has(key) && !(window.CARDATA && window.CARDATA[key])) await loadScript(key);
+  await cloudReady;
+  if (!merged[key]) { merged[key] = 1; window.CARDATA = window.CARDATA || {}; window.CARDATA[key] = (window.CARDATA[key] || []).concat(CLOUDITEMS[key] || []).filter(i => !HIDDEN.has(i.id)); }
+}
+
+/* tiny hash router so the phone's Back button works */
+let skipHash = false;
+const toHash = s => s.view==="home" ? "home" : s.view==="type" ? s.kind : s.view==="list" ? s.car : s.car + "-" + s.item.split("-").pop();
+async function fromHash(h){
+  h = (h||"").replace(/^#/,"");
+  if (h==="ev" || h==="pv") return {view:"type", kind:h};
+  const m = h.match(/^([a-z0-9_]+?)(?:-(\d+))?$/);
+  if (m && BY[m[1]]) {
+    const k = m[1]; await ensure(k);
+    const id = m[2] ? k + "-" + m[2] : null;
+    if (id && find(k,id)) return {view:"detail", car:k, kind:BY[k].kind, item:id};
+    return {view:"list", car:k, kind:BY[k].kind};
+  }
+  return {view:"home", kind:null, car:null};
+}
+async function go(next, keepScroll){
+  try { if (next.car) { app.innerHTML = '<p class="loading">Loading…</p>'; await ensure(next.car); } } catch(e){ app.innerHTML = '<p class="loading">Could not load this model. Check your connection and try again.</p>'; return; }
+  state = Object.assign({}, state, next);
+  if (next.view==="home") { state.kind = null; state.car = null; }
+  render();
+  if (!keepScroll) window.scrollTo(0,0);
+  try { skipHash = true; location.hash = toHash(state); setTimeout(()=>{skipHash=false},0); } catch(e) { skipHash=false; }
+}
+window.addEventListener("hashchange", async () => {
+  if (skipHash) return;
+  try { const n = await fromHash(location.hash); state = Object.assign({}, state, {cat:"All", q:""}, n); render(); window.scrollTo(0,0); } catch(e){}
+});
+backBtn.onclick = () => {
+  if (state.view==="detail") go({view:"list"}, true);
+  else if (state.view==="list") go({view:"type", car:null});
+  else if (state.view==="type") go({view:"home"});
+};
+
+function render(){
+  backBtn.hidden = state.view==="home";
+  document.body.dataset.kind = state.kind || "";
+  if (state.view==="home") renderHome();
+  else if (state.view==="type") renderType();
+  else if (state.view==="list") renderList();
+  else renderDetail();
+}
+
+function renderHome(){
+  const ev = LIST.filter(c => c.kind==="ev"), pv = LIST.filter(c => c.kind==="pv");
+  app.innerHTML = `
+    ${offersHtml()}
+    <h1>Find your <em>accessories</em></h1>
+    <p class="lede">Pick your car type, choose the model, and browse every genuine accessory made for it.</p>
+    <div class="choices">
+      <button class="choice ev" id="goEV">
+        <img class="lg" src="media/logo-ev.png" alt="Mahindra Electric SUVs"><span class="name">Electric cars</span>
+        <span class="sub">Charging, protection, comfort and style for electric models.</span>
+        <span class="count">${ev.length} models &rarr;</span>
+        <img src="${ev[1].hero}" alt="">
+      </button>
+      <button class="choice pv" id="goPV">
+        <img class="lg" src="media/logo-pv.png" alt="Mahindra Sport Utility Vehicles"><span class="name">Petrol &amp; Diesel</span>
+        <span class="sub">Chrome, seat covers, protection, audio and more for passenger cars.</span>
+        <span class="count">${pv.length} models &rarr;</span>
+        <img src="${pv[2].hero}" alt="">
+      </button>
+    </div>`;
+  $("#goEV").onclick = () => go({view:"type", kind:"ev"});
+  $("#goPV").onclick = () => go({view:"type", kind:"pv"});
+}
+
+function renderType(){
+  const k = state.kind, list = LIST.filter(c => c.kind===k);
+  app.innerHTML = `
+    <h2>${esc(KINDS[k].label)}</h2>
+    <p class="lede">Tap your model to see its accessories.</p>
+    <div class="cars">
+      ${list.map(c => `
+        <button class="car" data-k="${c.key}">
+          <div class="art"><img src="${c.hero}" alt="${esc(c.name)}"></div>
+          <div class="meta"><span class="nm">${esc(c.name)}</span>
+            <span class="sp">${esc(c.tag)}</span>
+            <span class="go">${c.count} accessories &rarr;</span></div>
+        </button>`).join("")}
+    </div>`;
+  app.querySelectorAll("[data-k]").forEach(b => b.onclick = () => go({view:"list", car:b.dataset.k, kind:k, cat:"All", q:""}));
+}
+
+function filtered(){
+  const q = state.q.trim().toLowerCase();
+  return items(state.car).filter(i =>
+    (state.cat==="All" || i.cat===state.cat) &&
+    (!q || (i.title+" "+i.cat+" "+i.parts.map(p=>p.no+" "+p.desc).join(" ")+" "+i.secs.map(s=>s.items.join(" ")).join(" ")).toLowerCase().includes(q)));
+}
+
+function ppfTile(){
+  return `<button class="ppf" id="ppf"><span class="pv-thumb"><img src="media/ppf-poster.jpg" alt=""><span class="play"><span>&#9654;</span></span></span>
+    <span><b>Paint protection film</b><small>Watch it being fitted</small></span></button>`;
+}
+function bindPpf(){
+  const b = $("#ppf"); if (!b) return;
+  b.onclick = () => {
+    const w = document.createElement("div"); w.className = "vwrap";
+    w.innerHTML = `<video controls playsinline autoplay poster="media/ppf-poster.jpg" src="media/ppf.mp4"></video>`;
+    b.replaceWith(w);
+    const v = w.querySelector("video"); try { v.play(); } catch(e) {}
+  };
+}
+
+function renderList(){
+  const meta = BY[state.car], its = items(state.car);
+  const cats = CATS.filter(k => its.some(i => i.cat===k));
+  app.innerHTML = `
+    <div class="hero-car">
+      <div class="txt"><h2>${esc(meta.name)}</h2><p>${esc(meta.tag)} · ${its.length} accessories</p></div>
+      <img src="${meta.hero}" alt="${esc(meta.name)}">
+    </div>
+    ${ppfTile()}
+    <input class="search" id="q" type="search" placeholder="Search by name or part number" value="${esc(state.q)}" aria-label="Search accessories">
+    <div class="chips" id="chips">
+      <button class="chip" aria-pressed="${state.cat==="All"}" data-cat="All">All<small>${its.length}</small></button>
+      ${cats.map(k => `<button class="chip" aria-pressed="${state.cat===k}" data-cat="${esc(k)}">${esc(k)}<small>${its.filter(i=>i.cat===k).length}</small></button>`).join("")}
+    </div>
+    <div id="results"></div>`;
+  bindPpf();
+  $("#q").oninput = e => { state.q = e.target.value; fill(); };
+  $("#chips").querySelectorAll("[data-cat]").forEach(b => b.onclick = () => {
+    state.cat = b.dataset.cat;
+    $("#chips").querySelectorAll("[data-cat]").forEach(x => x.setAttribute("aria-pressed", x.dataset.cat===state.cat));
+    fill();
+  });
+  fill();
+}
+
+function cardHtml(i){
+  const pn = i.parts.length ? i.parts[0].no + (i.parts.length>1 ? " +" + (i.parts.length-1) : "") : "";
+  return `<button class="card" data-i="${i.id}">
+    <div class="ph">${i.imgs[0] ? `<img src="${IMG(i.imgs[0])}" alt="" loading="lazy">` : ""}</div>
+    <div class="bd"><span class="t">${esc(i.title)}</span>${pn ? `<span class="pn">${esc(pn)}</span>` : ""}</div></button>`;
+}
+function fill(){
+  const its = filtered(), el = $("#results");
+  if (!its.length){ el.innerHTML = `<p class="empty">No accessories match. Try another word or category.</p>`; return; }
+  let html = "";
+  if (state.cat==="All" && !state.q.trim()){
+    CATS.forEach(k => {
+      const g = its.filter(i => i.cat===k); if (!g.length) return;
+      html += `<div class="group-h">${esc(k)}<small>${g.length}</small></div><div class="grid">${g.map(cardHtml).join("")}</div>`;
+    });
+  } else html = `<div class="grid">${its.map(cardHtml).join("")}</div>`;
+  el.innerHTML = html;
+  el.querySelectorAll("[data-i]").forEach(b => b.onclick = () => go({view:"detail", item:b.dataset.i}));
+}
+
+function renderDetail(){
+  const ck = state.car, i = find(ck, state.item), meta = BY[ck];
+  const kit = !!i.kitpage;
+  app.innerHTML = `
+    <div class="detail">
+      <span class="pill">${esc(meta.name)} · ${esc(i.cat)}</span>
+      <h2>${esc(i.title)}</h2>
+      ${i.imgs.length ? `<div class="gallery ${kit?"kit":""}" tabindex="0" aria-label="Product photos">
+        ${i.imgs.map(s => `<figure><img src="${IMG(s)}" alt="${esc(i.title)}"></figure>`).join("")}
+      </div>` : ""}
+      ${i.parts.length ? `
+      <h3 style="margin-top:6px;margin-bottom:8px">Part numbers</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Part no</th><th>Description</th><th>Fits</th></tr></thead>
+        <tbody>${i.parts.map(p => `<tr><td class="pn">${esc(p.no)}</td><td>${esc(p.desc)}</td><td>${esc(p.fit||"All variants")}</td></tr>`).join("")}</tbody>
+      </table></div>` : ""}
+      ${i.video ? `<h3 style="margin-top:20px;margin-bottom:8px">See it being fitted</h3>
+        <video controls preload="none" playsinline poster="media/ppf-poster.jpg" src="media/ppf.mp4"></video>` : ""}
+      ${i.aside && i.aside.length ? `<details open><summary>What is in the box</summary><ul>${i.aside.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></details>` : ""}
+      ${i.secs.map((s,k) => `<details ${k===0 ? "open":""}><summary>${esc(s.h || "Details")}</summary><ul>${s.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>`).join("")}
+      ${i.notes.map(n => `<div class="note">${esc(n)}</div>`).join("")}
+      ${i.also && i.also.length ? `<div class="also">Also made for:${i.also.map(k=>`<button data-also="${k}">${esc(BY[k].name)}</button>`).join("")}</div>` : ""}
+      <div class="row"><button class="btn" id="more">More for ${esc(meta.name)}</button></div>
+    </div>`;
+  $("#more").onclick = () => go({view:"list"}, true);
+  app.querySelectorAll("[data-also]").forEach(b => b.onclick = async () => {
+    const k = b.dataset.also;
+    try { await ensure(k); } catch(e) { return; }
+    const m = items(k).find(x => x.parts.some(p => i.parts.some(q => q.no===p.no)));
+    go(m ? {view:"detail", car:k, kind:BY[k].kind, item:m.id} : {view:"list", car:k, kind:BY[k].kind, cat:"All", q:""});
+  });
+}
+
+(async () => {
+  const h = location.hash.replace("#","");
+  if (h && h !== "home" && h !== "ev" && h !== "pv") await cloudReady;
+  try { state = Object.assign(state, await fromHash(location.hash)); } catch(e) {}
+  render();
+  cloudReady.then(() => { if (state.view === "home" || state.view === "type") render(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+MAHINDRA MODI ACCESSORIES - HOW TO USE
+======================================
+
+TWO PARTS
+  site\        = the CUSTOMER website. The QR code opens this. Upload ONLY this folder to Vercel / Netlify.
+  admin.html   = YOUR private admin page. Keep it on your computer. NEVER upload it.
+
+FIRST TIME
+  1. Unzip this whole folder on your computer (right-click > Extract All).
+  2. Upload the "site" folder to Vercel / Netlify (same way as before). Make a QR code of that link.
+
+WHEN YOU WANT TO CHANGE SOMETHING (offer, phone number, new car, new accessory)
+  1. Double-click admin.html (opens in Chrome or Edge).
+  2. Make your changes in the tabs: Offers / Showroom / New cars / Accessories.
+  3. Click "Publish changes" > "Save into my site folder" > choose the "site" folder.
+     (If your browser has no such option, use "download as zip" and unzip it into the "site" folder.)
+  4. Upload the "site" folder to Vercel / Netlify again. Done - customers see the changes.
+
+NOTES
+  - Your changes are remembered in the browser on this computer until you publish. Use the same computer and browser each time.
+  - Offers switch on and off by themselves on the start and end dates you set.
+  - To remove an old accessory or car, use "Hide". You can show it again later.
