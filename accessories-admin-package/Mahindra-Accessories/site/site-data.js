@@ -1,18 +1,6 @@
 /* Written by the admin page. Do not edit by hand. */
 window.SITEDATA = {
- "offers": [
-  {
-   "id": "f732e81c-aae2-4df2-bef7-15ab8643c071",
-   "created_at": "2026-10-27T08:30:05.951Z",
-   "active": true,
-   "title": "Diwali",
-   "body": "happy diwali offers \nhappy\nhappy \nhappy",
-   "image_url": "uploads/offers-1793089805945-6rzdf.webp",
-   "pdf_url": null,
-   "starts_at": "2026-10-27",
-   "ends_at": "2026-10-28"
-  }
- ],
+ "offers": [],
  "cars": [
   {
    "id": "7e4eaf0e-0b55-45a5-9c10-8700d8fed32e",
