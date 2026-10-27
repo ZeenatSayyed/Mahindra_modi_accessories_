@@ -964,6 +964,13 @@ window.SITEDATA = {
      }
     ]
    }
+  },
+  {
+   "key": "hidden",
+   "value": {
+    "ids": [],
+    "cars": []
+   }
   }
  ],
  "nextNum": 53
