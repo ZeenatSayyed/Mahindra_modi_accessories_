@@ -10,8 +10,7 @@ window.SITEDATA = {
     "name": "Mahindra Modi",
     "tagline": "A Unit of Arnav Automobiles",
     "phones": [
-     "+91 8238785050",
-     "+91 8469989900"
+     "080 4803 4192"
     ],
     "branches": [
      {
