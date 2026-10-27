@@ -11,6 +11,17 @@ window.SITEDATA = {
    "pdf_url": null,
    "starts_at": "2026-10-27",
    "ends_at": "2026-10-28"
+  },
+  {
+   "id": "a1938cd5-1b8c-43e2-879c-060f01b2cda2",
+   "created_at": "2026-10-27T11:50:16.642Z",
+   "active": true,
+   "title": "snlsndn",
+   "body": "lksndlns",
+   "image_url": "uploads/offers-1793101816635-7o803.webp",
+   "pdf_url": null,
+   "starts_at": "2026-10-27",
+   "ends_at": null
   }
  ],
  "cars": [
