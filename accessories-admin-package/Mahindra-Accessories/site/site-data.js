@@ -993,6 +993,19 @@ window.SITEDATA = {
     "ids": [],
     "cars": []
    }
+  },
+  {
+   "key": "home",
+   "value": {
+    "h1": "Find your *accessories*",
+    "lede": "Pick your car type, choose the model, and browse every genuine accessory made for it.",
+    "ev_name": "Electric cars",
+    "ev_sub": "Charging, protection, comfort and style for electric models.",
+    "pv_name": "Petrol, Diesel & CNG",
+    "pv_sub": "Chrome, seat covers, protection, audio and more for passenger cars.",
+    "ev_lede": "Tap your model to see its accessories.",
+    "pv_lede": "Tap your model to see its accessories."
+   }
   }
  ],
  "nextNum": 105
