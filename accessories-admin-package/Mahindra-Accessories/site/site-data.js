@@ -2,12 +2,12 @@
 window.SITEDATA = {
  "offers": [
   {
-   "id": "61f5f92b-c8e8-4e51-9ccb-48c406a3dc59",
-   "created_at": "2026-10-27T08:07:28.102Z",
+   "id": "f732e81c-aae2-4df2-bef7-15ab8643c071",
+   "created_at": "2026-10-27T08:30:05.951Z",
    "active": true,
    "title": "Diwali",
-   "body": "happy diwali",
-   "image_url": "uploads/offers-1793088448092-cy8p1.webp",
+   "body": "happy diwali offers \nhappy\nhappy \nhappy",
+   "image_url": "uploads/offers-1793089805945-6rzdf.webp",
    "pdf_url": null,
    "starts_at": "2026-10-27",
    "ends_at": "2026-10-28"
