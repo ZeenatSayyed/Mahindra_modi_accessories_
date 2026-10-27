@@ -10,7 +10,7 @@ window.SITEDATA = {
    "image_url": "uploads/offers-1793080296449-w1oco.webp",
    "pdf_url": null,
    "starts_at": "2026-10-27",
-   "ends_at": "2026-10-27"
+   "ends_at": "2026-10-28"
   }
  ],
  "cars": [],
