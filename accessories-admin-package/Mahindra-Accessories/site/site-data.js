@@ -22,6 +22,17 @@ window.SITEDATA = {
    "pdf_url": null,
    "starts_at": "2026-10-27",
    "ends_at": null
+  },
+  {
+   "id": "e8b07678-14d2-44d8-a4cf-6baaee80b800",
+   "created_at": "2026-10-27T11:55:21.583Z",
+   "active": true,
+   "title": "happy",
+   "body": "",
+   "image_url": null,
+   "pdf_url": "uploads/offers-1793102121563-bt9ov.pdf",
+   "starts_at": "2026-10-27",
+   "ends_at": "2026-10-28"
   }
  ],
  "cars": [
