@@ -1,0 +1,4 @@
+1. Unzip all 5 zips into the same folder.
+2. GitHub > your repo > site folder > Add file > Upload files > drag EVERYTHING inside the "site" folder > Commit changes. (Upload media/brochures as a second batch if GitHub complains.)
+3. Wait 2 minutes, open your website.
+4. Open admin.html > Publish changes > Connect to GitHub > Load latest from website. Edit, then Publish.

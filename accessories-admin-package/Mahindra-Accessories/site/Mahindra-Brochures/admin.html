@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin – Mahindra Modi Brochures (private)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=Lato:wght@700;900&display=swap">
+<style>
+:root{--bg:#050506;--surface:#0f1013;--surface2:#17191d;--ink:#f4f5f7;--muted:#9aa0ab;--line:#2a2d34;--red:#ff4452;--red-fill:#b80f26;--green:#37e98c;--green-fill:#0b8a47;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 380px at 50% -140px,#1b1e25 0%,rgba(5,5,6,0) 70%) no-repeat,var(--bg);color:var(--ink);font:15px/1.5 "IBM Plex Sans",system-ui,sans-serif;border-top:5px solid var(--red-fill)}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:16px;flex-wrap:wrap}
+.brandrow{display:flex;align-items:center;gap:12px}.brandrow img{height:38px;width:auto}
+header b{font-family:Lato,sans-serif;font-weight:900;font-size:20px}
+header small{display:block;color:var(--muted);font-size:12px}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;margin:0;line-height:1}
+h2{font-size:32px;margin-bottom:6px} h3{font-size:22px;margin-bottom:10px}
+p.hint{color:var(--muted);margin:4px 0 14px;font-size:14px}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:6px;padding:9px 14px;font-weight:600;text-decoration:none;display:inline-block}
+button.pri{background:linear-gradient(180deg,#d4172f,var(--red-fill));box-shadow:inset 0 1px 0 #ffffff30;border-color:var(--red-fill);color:#fff}
+button.danger{color:#ff8a93;border-color:#5a1f26}
+button.sm{padding:6px 10px;font-size:13px}
+button:disabled{opacity:.5;cursor:default}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tabs button[aria-pressed="true"]{background:var(--red-fill);border-color:var(--red-fill);color:#fff}
+.card{background:linear-gradient(180deg,#14161a,var(--surface));border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:12px}
+label{display:block;font-weight:600;font-size:13px;margin:12px 0 4px;color:#d6d6da}
+input[type=text],input[type=email],input[type=password],input[type=date],select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:11px 12px;font:inherit;font-size:16px}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.item{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.item img{width:84px;height:56px;object-fit:cover;border-radius:4px;background:#000;flex:none}
+.item .mid{flex:1;min-width:150px}
+.item .t{font-weight:600}.item .s{color:var(--muted);font-size:13px}
+.chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line);margin-right:6px}
+.live{color:#2ee66b;border-color:#14502c}.sched{color:#ffc857;border-color:#5a4a14}.exp,.hid{color:var(--muted)}
+.prev{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.prev div{position:relative}.prev img{width:92px;height:64px;object-fit:cover;border-radius:4px;background:#000;display:block}
+.prev button{position:absolute;top:2px;right:2px;padding:0 7px;font-size:15px;line-height:20px;background:#000c;border-color:#000}
+.hbtns{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.dirty{color:#ffc857;font-size:12px;font-weight:700}
+#modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}.mbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;max-width:460px;width:100%;max-height:90vh;overflow:auto}.mbox button{margin-top:6px}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1d1d21;border:1px solid var(--line);padding:10px 16px;border-radius:8px;max-width:90vw;z-index:9;display:none}
+#toast.err{border-color:var(--red-fill);color:#ff9aa2}
+.small{font-size:13px;color:var(--muted)}
+.kind-ev{border-left:4px solid var(--green-fill)}.kind-pv{border-left:4px solid var(--red-fill)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brandrow"><img src="site/media/logo-pv.png" alt=""><img src="site/media/logo-ev.png" alt=""><div><b id="who">Admin panel</b><small>Home page &middot; Offers &middot; Showroom &middot; Cars</small></div></div>
+    <div class="hbtns"><span id="dirty" class="dirty"></span> <a class="btn sm" id="viewSite" href="site/index.html" target="_blank" rel="noopener">View website</a> <button class="sm" id="reload">Load latest from website</button> <button class="pri sm" id="pub">Publish changes</button></div>
+  </header>
+  <p class="small" style="margin:-6px 0 14px">Private page. It works only on this computer, and customers can never see it.</p>
+  <main id="main"></main>
+</div>
+<div id="toast" role="status"></div>
+<script>
+/* ============ YOUR SHOWROOM DETAILS ============
+   Change only the text between the quotes, then save the file.
+   Remove a line or leave it "" (empty) to hide it on the website. */
+window.SHOP = {
+  name: "Mahindra Modi",
+  tagline: "A Unit of Arnav Automobiles",
+  phones: ["+91 8238785050", "+91 8469989900"],
+  branches: [
+    { name: "Thane",  map: "https://share.google/dah0ywqOtaTiW5Uyb" },
+    { name: "Airoli", map: "https://share.google/hZEVKYUkYJ045ov0Q" },
+    { name: "Worli",  map: "https://share.google/yO0EBTIAkyEpbIs2D" }
+  ]
+};
+
+window.SEED = [
+ {
+  "key": "be6",
+  "name": "BE 6",
+  "kind": "ev",
+  "tag": "Electric SUV-coupe",
+  "hero_url": "media/heroes/be6.webp",
+  "pdf_url": "media/brochures/be6.pdf"
+ },
+ {
+  "key": "xev9e",
+  "name": "XEV 9e",
+  "kind": "ev",
+  "tag": "Electric SUV-coupe",
+  "hero_url": "media/heroes/xev9e.webp",
+  "pdf_url": "media/brochures/xev9e.pdf"
+ },
+ {
+  "key": "xev9s",
+  "name": "XEV 9S",
+  "kind": "ev",
+  "tag": "Electric 7-seat SUV",
+  "hero_url": "media/heroes/xev9s.webp",
+  "pdf_url": "media/brochures/xev9s.pdf"
+ },
+ {
+  "key": "scorpio_n",
+  "name": "Scorpio-N",
+  "kind": "pv",
+  "tag": "SUV",
+  "hero_url": "media/heroes/scorpio_n.webp",
+  "pdf_url": "media/brochures/scorpio_n.pdf"
+ },
+ {
+  "key": "scorpio_classic",
+  "name": "Scorpio Classic",
+  "kind": "pv",
+  "tag": "SUV",
+  "hero_url": "media/heroes/scorpio_classic.webp",
+  "pdf_url": "media/brochures/scorpio_classic.pdf"
+ },
+ {
+  "key": "thar",
+  "name": "Thar",
+  "kind": "pv",
+  "tag": "Off-road SUV",
+  "hero_url": "media/heroes/thar.webp",
+  "pdf_url": "media/brochures/thar.pdf"
+ },
+ {
+  "key": "thar_roxx",
+  "name": "Thar ROXX",
+  "kind": "pv",
+  "tag": "Off-road SUV",
+  "hero_url": "media/heroes/thar_roxx.webp",
+  "pdf_url": "media/brochures/thar_roxx.pdf"
+ },
+ {
+  "key": "xuv3xo",
+  "name": "XUV 3XO",
+  "kind": "pv",
+  "tag": "Compact SUV",
+  "hero_url": "media/heroes/xuv3xo.webp",
+  "pdf_url": "media/brochures/xuv3xo.pdf"
+ },
+ {
+  "key": "xuv7xo",
+  "name": "XUV 7XO",
+  "kind": "pv",
+  "tag": "7-seat SUV",
+  "hero_url": "media/heroes/xuv7xo.webp",
+  "pdf_url": "media/brochures/xuv7xo.pdf"
+ },
+ {
+  "key": "bolero_neo",
+  "name": "Bolero Neo",
+  "kind": "pv",
+  "tag": "Utility SUV",
+  "hero_url": "media/heroes/bolero_neo.webp",
+  "pdf_url": "media/brochures/bolero_neo.pdf"
+ },
+ {
+  "key": "thar_og",
+  "name": "Thar OG",
+  "kind": "pv",
+  "tag": "Off-road SUV",
+  "hero_url": "media/heroes/thar_og.webp",
+  "pdf_url": "media/brochures/thar_og.pdf"
+ }
+];
+</script>
+<script src="site/site-data.js" onerror="void 0"></script>
+<script>
+function migrateData(sd){
+  sd = sd || {}; if (sd.version === 2) return sd;
+  const st = sd.settings || [], setv = k => { const r = st.find(x => x.key === k); return r && r.value; }, hid = setv("hidden") || {}, ed = (setv("edits") || {}).cars || {};
+  const have = new Map((sd.cars || []).map(c => [c.key, c])), cars = [];
+  (window.SEED || []).forEach(s => { const o = have.get(s.key), e = ed[s.key] || {};
+    const base = Object.assign({id:"seed-" + s.key, active:true, created_at:"2026-10-27T00:00:00.000Z"}, s, o || {});
+    if (!base.pdf_url && s.pdf_url) base.pdf_url = s.pdf_url; if (e.name) base.name = e.name; if (e.tag != null) base.tag = e.tag;
+    if (!o && (hid.cars || []).includes(s.key)) base.active = false; cars.push(base); have.delete(s.key); });
+  have.forEach(c => cars.push(Object.assign({pdf_url:null}, c)));
+  return {version:2, offers:sd.offers || [], cars, items:[], settings:st.filter(x => x.key === "shop" || x.key === "home"), nextNum:1};
+}
+"use strict";
+const $ = s => document.querySelector(s), main = $("#main");
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let toastT; function toast(m, err){ const t = $("#toast"); t.textContent = m; t.className = err ? "err" : ""; t.style.display = "block"; clearTimeout(toastT); toastT = setTimeout(() => t.style.display = "none", err ? 6000 : 2600); }
+
+/* ---------- data lives in this browser until you press Publish ---------- */
+let D = {offers:[], cars:[], items:[], settings:[], nextNum:1};
+let FILES = {};            /* new photos / PDFs, path -> Blob */
+let dirty = false;
+const OURL = {};
+const uid = () => (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(16).slice(2) + Date.now());
+const siteBase = () => { const c = ghCfg(); return c && c.site ? c.site.replace(/\/+$/, "") + "/" : "site/"; };
+function vu(p){ if (!p) return ""; if (FILES[p]) return OURL[p] || (OURL[p] = URL.createObjectURL(FILES[p])); if (window.IMGS && window.IMGS[p]) return window.IMGS[p]; if (/^(uploads|img|media)\//.test(p)) return siteBase() + p; return p; }
+const idb = () => new Promise((res, rej) => { const r = indexedDB.open("mm-admin", 1); r.onupgradeneeded = () => r.result.createObjectStore("kv"); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+async function idbGet(k){ const db = await idb(); return new Promise((res, rej) => { const q = db.transaction("kv").objectStore("kv").get(k); q.onsuccess = () => res(q.result); q.onerror = () => rej(q.error); }); }
+async function idbPut(k, v){ const db = await idb(); return new Promise((res, rej) => { const t = db.transaction("kv", "readwrite"); t.objectStore("kv").put(v, k); t.oncomplete = res; t.onerror = () => rej(t.error); }); }
+function badge(){ const b = $("#dirty"); if (b) b.textContent = dirty ? "Unpublished changes" : ""; }
+async function persist(){ dirty = true; badge(); try { await idbPut("state", {D, FILES, dirty}); } catch(e) {} }
+function fromSiteData(){
+  const sd = migrateData(window.SITEDATA);
+  D = {offers:sd.offers || [], cars:sd.cars || [], items:sd.items || [], settings:sd.settings || [], nextNum:sd.nextNum || 1};
+  D.nextNum = Math.max(D.nextNum, 1 + Math.max(0, ...D.items.map(x => x.num || 0)));
+  FILES = {}; dirty = false;
+}
+async function loadLive(){
+  const c = ghCfg(); if (!c) return false;
+  try {
+    const br = (await gh(c, "GET", "/repos/" + c.repo)).default_branch;
+    const j = await gh(c, "GET", "/repos/" + c.repo + "/contents/" + ghPath(c, "site-data.js").split("/").map(encodeURIComponent).join("/") + "?ref=" + encodeURIComponent(br));
+    const txt = new TextDecoder().decode(Uint8Array.from(atob(j.content.replace(/\s/g, "")), ch => ch.charCodeAt(0)));
+    window.SITEDATA = JSON.parse(txt.slice(txt.indexOf("{"), txt.lastIndexOf("}") + 1)); return true;
+  } catch(e) { return false; }
+}
+async function initData(){
+  try { const st = await idbGet("state"); if (st && st.D) { D = st.D; FILES = st.FILES || {}; dirty = !!st.dirty; return; } } catch(e) {}
+  await loadLive(); fromSiteData();
+}
+async function rest(method, path, body, prefer){
+  const [t, qs] = path.split("?"); const q = new URLSearchParams(qs || ""); if (!Array.isArray(D[t])) throw new Error("Unknown table " + t);
+  const match = r => { for (const [k, v] of q) { if (k === "select" || k === "order" || k === "on_conflict") continue; const m = v.match(/^eq\.(.*)$/); if (m && String(r[k]) !== m[1]) return false; } return true; };
+  if (method === "GET") { let rows = D[t].filter(match); const o = q.get("order"); if (o) { const [c, d] = o.split("."); rows = rows.slice().sort((a, b) => (a[c] > b[c] ? 1 : a[c] < b[c] ? -1 : 0) * (d === "desc" ? -1 : 1)); } return JSON.parse(JSON.stringify(rows)); }
+  if (method === "POST") {
+    if (q.get("on_conflict")) { const c = q.get("on_conflict"), i = D[t].findIndex(r => r[c] === body[c]); if (i >= 0) D[t][i] = body; else D[t].push(body); await persist(); return [body]; }
+    const r = Object.assign({id:uid(), created_at:new Date().toISOString(), active:true}, body); if (t === "items") r.num = D.nextNum++; D[t].push(r); await persist(); return [r];
+  }
+  if (method === "PATCH") { const hit = D[t].filter(match); hit.forEach(r => Object.assign(r, body)); await persist(); return JSON.parse(JSON.stringify(hit)); }
+  if (method === "DELETE") { D[t] = D[t].filter(r => !match(r)); await persist(); return []; }
+}
+async function getSetting(k){ const r = D.settings.find(x => x.key === k); return r ? r.value : null; }
+async function setSetting(k, v){ await rest("POST", "settings?on_conflict=key", {key:k, value:v}); }
+async function upload(blob, folder, ext){
+  const path = "uploads/" + folder + "-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7) + "." + ext;
+  FILES[path] = blob; await persist(); return path;
+}
+/* shrink phone photos before saving so pages stay fast */
+async function shrink(file, maxW, q){
+  const bmp = await createImageBitmap(file);
+  const sc = Math.min(1, maxW / Math.max(bmp.width, bmp.height));
+  const cv = document.createElement("canvas"); cv.width = Math.round(bmp.width * sc); cv.height = Math.round(bmp.height * sc);
+  cv.getContext("2d").drawImage(bmp, 0, 0, cv.width, cv.height);
+  let b = await new Promise(r => cv.toBlob(r, "image/webp", q));
+  if (!b || b.type !== "image/webp") { b = await new Promise(r => cv.toBlob(r, "image/jpeg", q)); }
+  return {blob:b, ext:b.type === "image/webp" ? "webp" : "jpg"};
+}
+async function uploadImage(file, folder, maxW){ const s = await shrink(file, maxW || 1400, .82); return upload(s.blob, folder, s.ext); }
+const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+const ymd = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+const fmt = s => { if (!s) return ""; const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d).toLocaleDateString("en-IN", {day:"numeric", month:"short", year:"numeric"}); };
+const busy = (b, on) => { if (b) { b.disabled = on; if (on) { b.dataset.t = b.textContent; b.textContent = "Saving…"; } else if (b.dataset.t) b.textContent = b.dataset.t; } };
+
+/* ---------- app shell ---------- */
+let tab = "home";
+function shell(){
+  badge();
+  main.innerHTML = `<div class="tabs" id="tabs">
+    <button data-t="home" aria-pressed="${tab==="home"}">Home page</button>
+    <button data-t="offers" aria-pressed="${tab==="offers"}">Offers</button>
+    <button data-t="shop" aria-pressed="${tab==="shop"}">Showroom</button>
+    <button data-t="cars" aria-pressed="${tab==="cars"}">Cars</button></div><div id="view"></div>`;
+  $("#tabs").onclick = e => { const b = e.target.closest("[data-t]"); if (b) { tab = b.dataset.t; shell(); } };
+  ({home:homeView, offers:offersView, shop:shopView, cars:carsView})[tab]().catch(err => { toast(err.message, true); });
+}
+
+/* preview helpers for image pickers */
+function picker(id, multi){ return `<input type="file" id="${id}" accept="image/*" ${multi ? "multiple" : ""}><div class="prev" id="${id}-p"></div>`; }
+
+/* ================= OFFERS ================= */
+async function offersView(){
+  const v = $("#view"); v.innerHTML = '<p class="hint">Loading…</p>';
+  const rows = await rest("GET", "offers?select=*&order=created_at.desc");
+  const today = ymd(new Date());
+  const st = o => !o.active ? ["hid","Hidden"] : o.starts_at > today ? ["sched","Scheduled"] : (o.ends_at && o.ends_at < today) ? ["exp","Expired"] : ["live","Live"];
+  v.innerHTML = `<h2>Offers</h2><p class="hint">Offers appear at the top of the home page between the start and end dates, and disappear by themselves afterwards.</p>
+    <div class="actions" style="margin:0 0 14px"><button class="pri" id="newO">+ New offer</button></div><div id="form"></div>
+    ${rows.length ? rows.map(o => { const [c,l] = st(o); return `<div class="card item" data-id="${o.id}">
+      ${o.image_url ? `<img src="${esc(vu(o.image_url))}" alt="">` : ""}
+      <div class="mid"><div class="t">${esc(o.title)}</div><div class="s"><span class="chip ${c}">${l}</span>${fmt(o.starts_at)}${o.ends_at ? " → " + fmt(o.ends_at) : " → no end date"}${o.pdf_url ? " · PDF attached" : ""}</div></div>
+      <button class="sm" data-a="edit">Edit</button><button class="sm" data-a="tog">${o.active ? "Hide" : "Show"}</button><button class="sm danger" data-a="del">Delete</button></div>`; }).join("") : '<p class="hint">No offers yet. Tap “New offer”.</p>'}`;
+  $("#newO").onclick = () => offerForm(null);
+  v.onclick = async e => {
+    const b = e.target.closest("[data-a]"); if (!b) return; const id = b.closest("[data-id]").dataset.id, o = rows.find(x => x.id === id);
+    try {
+      if (b.dataset.a === "edit") offerForm(o);
+      if (b.dataset.a === "tog") { await rest("PATCH", "offers?id=eq." + id, {active:!o.active}); toast("Updated"); offersView(); }
+      if (b.dataset.a === "del" && confirm("Delete this offer?")) { await rest("DELETE", "offers?id=eq." + id); toast("Deleted"); offersView(); }
+    } catch(err) { toast(err.message, true); }
+  };
+}
+function offerForm(o){
+  const f = $("#form"); let img = o && o.image_url || "", pdf = o && o.pdf_url || "";
+  f.innerHTML = `<div class="card"><h3>${o ? "Edit offer" : "New offer"}</h3>
+    <label>Heading *</label><input type="text" id="o_t" maxlength="90" placeholder="e.g. Diwali Special – Free Car Perfume" value="${esc(o ? o.title : "")}">
+    <label>Details (optional)</label><textarea id="o_b" placeholder="Short text shown under the heading">${esc(o ? o.body : "")}</textarea>
+    <label>Creative / poster image (optional)</label>${picker("o_i")}
+    <label>Offer PDF (optional)</label><input type="file" id="o_f" accept="application/pdf"><div class="small" id="o_fp">${pdf ? "A PDF is attached. Choose a new one to replace it." : ""}</div>
+    <div class="row"><div><label>Starts on</label><input type="date" id="o_s" value="${o ? o.starts_at : ymd(new Date())}"></div>
+    <div><label>Ends on (last day shown)</label><input type="date" id="o_e" value="${o && o.ends_at ? o.ends_at : ""}"></div></div>
+    <label><input type="checkbox" id="o_a" ${!o || o.active ? "checked" : ""}> Show this offer</label>
+    <div class="actions"><button class="pri" id="o_save">Save offer</button><button id="o_x">Cancel</button></div></div>`;
+  const draw = () => { $("#o_i-p").innerHTML = img ? `<div><img src="${esc(vu(img))}" alt=""><button data-x>×</button></div>` : ""; };
+  draw(); $("#o_i-p").onclick = e => { if (e.target.closest("[data-x]")) { img = ""; draw(); } };
+  $("#o_x").onclick = () => f.innerHTML = ""; f.scrollIntoView({behavior:"smooth"});
+  $("#o_save").onclick = async e => {
+    const b = e.currentTarget, title = $("#o_t").value.trim(); if (!title) return toast("Please add a heading", true);
+    const s = $("#o_s").value, en = $("#o_e").value; if (!s) return toast("Choose a start date", true); if (en && en < s) return toast("End date is before the start date", true);
+    busy(b, true);
+    try {
+      const fi = $("#o_i").files[0]; if (fi) img = await uploadImage(fi, "offers", 1400);
+      const fp = $("#o_f").files[0]; if (fp) { if (fp.size > 15e6) throw new Error("PDF is too big (max 15 MB)"); pdf = await upload(fp, "offers", "pdf"); }
+      const row = {title, body:$("#o_b").value.trim(), image_url:img || null, pdf_url:pdf || null, starts_at:s, ends_at:en || null, active:$("#o_a").checked};
+      if (o) await rest("PATCH", "offers?id=eq." + o.id, row); else await rest("POST", "offers", row);
+      toast("Offer saved"); offersView();
+    } catch(err) { toast(err.message, true); busy(b, false); }
+  };
+}
+
+/* ================= HOME PAGE TEXT ================= */
+const HOME_DEF = {h1:"Find your *car brochure*", lede:"Pick your car type, tap your model and open its brochure.", ev_name:"Electric cars", ev_sub:"Brochures for every electric model.", pv_name:"Petrol & Diesel", pv_sub:"Brochures for every petrol and diesel model.", ev_lede:"Tap your model to open its brochure.", pv_lede:"Tap your model to open its brochure."};
+async function homeView(){
+  const v = $("#view"); const d = Object.assign({}, HOME_DEF, (await getSetting("home")) || {});
+  const fld = (k, l, ta) => `<label>${l}</label>` + (ta ? `<textarea id="h_${k}" style="min-height:60px">${esc(d[k])}</textarea>` : `<input type="text" id="h_${k}" value="${esc(d[k])}">`);
+  v.innerHTML = `<h2>Home page</h2><p class="hint">The words customers see on the first page. Showroom name, phones and locations are in the Showroom tab; offers are in the Offers tab.</p>
+    <div class="card">${fld("h1", "Big heading")}<p class="small">Put a word between * stars * to show it in red, e.g. Find your *accessories*.</p>
+    ${fld("lede", "Line under the heading", 1)}
+    <h3 style="margin-top:18px">Electric card</h3>${fld("ev_name", "Title")}${fld("ev_sub", "Small text", 1)}${fld("ev_lede", "Line on the Electric cars page", 1)}
+    <h3 style="margin-top:18px">Petrol &amp; Diesel card</h3>${fld("pv_name", "Title")}${fld("pv_sub", "Small text", 1)}${fld("pv_lede", "Line on the Petrol &amp; Diesel page", 1)}
+    <div class="actions"><button class="pri" id="h_save">Save home page</button><button id="h_reset">Back to original</button></div></div>`;
+  $("#h_save").onclick = async e => { const b = e.currentTarget; busy(b, true); try { const o = {}; Object.keys(HOME_DEF).forEach(k => o[k] = $("#h_" + k).value.trim()); if (!o.h1) throw new Error("The big heading can't be empty"); await setSetting("home", o); toast("Saved. Press Publish changes to put it on the website."); } catch(err) { toast(err.message, true); } finally { busy(b, false); } };
+  $("#h_reset").onclick = async () => { D.settings = D.settings.filter(x => x.key !== "home"); await persist(); toast("Back to original"); homeView(); };
+}
+
+/* ================= SHOWROOM DETAILS ================= */
+async function shopView(){
+  const v = $("#view"); v.innerHTML = '<p class="hint">Loading…</p>';
+  const d = (await getSetting("shop")) || {};
+  const def = window.SHOP || {};
+  const g = k => d[k] != null ? d[k] : def[k];
+  const phones = (g("phones") || []).join("\n"), br = (g("branches") || []).map(b => b.name + " | " + (b.map || "")).join("\n");
+  v.innerHTML = `<h2>Showroom details</h2><p class="hint">Shown in the top-right of every page and in the “Visit us” section at the bottom.</p>
+    <div class="card"><label>Showroom name</label><input type="text" id="s_n" value="${esc(g("name") || "")}">
+    <label>Line under the name</label><input type="text" id="s_t" value="${esc(g("tagline") || "")}" placeholder="e.g. A Unit of Arnav Automobiles">
+    <label>Phone numbers (one per line)</label><textarea id="s_p" style="min-height:70px">${esc(phones)}</textarea>
+    <label>Locations (one per line: Name | Google Maps link)</label><textarea id="s_b" placeholder="Thane | https://maps.app.goo.gl/...">${esc(br)}</textarea>
+    <p class="small">Open the place in Google Maps, tap Share, copy the link and paste it after the “|”.</p>
+    <div class="actions"><button class="pri" id="s_save">Save details</button></div></div>`;
+  $("#s_save").onclick = async e => {
+    const b = e.currentTarget; busy(b, true);
+    try {
+      const lines = t => t.split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+      const val = {name:$("#s_n").value.trim(), tagline:$("#s_t").value.trim(), phones:lines($("#s_p").value),
+        branches:lines($("#s_b").value).map(l => { const p = l.split("|"); return {name:p[0].trim(), map:(p.slice(1).join("|") || "").trim()}; }).filter(x => x.name)};
+      if (!val.name) throw new Error("Showroom name can't be empty");
+      await setSetting("shop", val); toast("Saved. The website updates within a minute.");
+    } catch(err) { toast(err.message, true); } finally { busy(b, false); }
+  };
+}
+
+/* ================= CARS ================= */
+function pdfName(p){ return p ? p.split("/").pop() : ""; }
+async function carsView(){
+  const v = $("#view"); const rows = D.cars;
+  v.innerHTML = `<h2>Cars</h2><p class="hint">Each car is just a name and its brochure PDF. When a customer taps the car, the brochure opens. Use the arrows to change the order.</p>
+    <div class="actions" style="margin:0 0 14px"><button class="pri" id="newC">+ Add a car</button></div><div id="form"></div>
+    ${rows.length ? rows.map((c, n) => `<div class="card item kind-${c.kind}" data-id="${esc(c.id)}">
+      ${c.hero_url ? `<img src="${esc(vu(c.hero_url))}" alt="">` : ""}<div class="mid"><div class="t">${esc(c.name)}</div><div class="s"><span class="chip ${c.pdf_url ? "live" : "sched"}">${c.pdf_url ? "Brochure added" : "No brochure yet"}</span>${c.kind === "ev" ? "Electric" : "Petrol & Diesel"}${c.tag ? " · " + esc(c.tag) : ""}${c.active ? "" : " · Hidden"}</div></div>
+      <button class="sm" data-a="up" ${n ? "" : "disabled"}>↑</button><button class="sm" data-a="down" ${n < rows.length - 1 ? "" : "disabled"}>↓</button>
+      <button class="sm" data-a="edit">Edit</button><button class="sm" data-a="tog">${c.active ? "Hide" : "Show"}</button><button class="sm danger" data-a="del">Delete</button></div>`).join("") : '<p class="hint">No cars yet. Tap “Add a car”.</p>'}`;
+  $("#newC").onclick = () => carForm(null);
+  v.onclick = async e => {
+    const b = e.target.closest("[data-a]"); if (!b) return; const id = b.closest("[data-id]").dataset.id, i = D.cars.findIndex(x => x.id === id), c = D.cars[i];
+    try {
+      if (b.dataset.a === "edit") carForm(c);
+      if (b.dataset.a === "tog") { c.active = !c.active; await persist(); carsView(); }
+      if (b.dataset.a === "up" && i > 0) { D.cars.splice(i - 1, 0, D.cars.splice(i, 1)[0]); await persist(); carsView(); }
+      if (b.dataset.a === "down" && i < D.cars.length - 1) { D.cars.splice(i + 1, 0, D.cars.splice(i, 1)[0]); await persist(); carsView(); }
+      if (b.dataset.a === "del" && confirm("Delete " + c.name + " from the website?")) { D.cars.splice(i, 1); await persist(); toast("Deleted"); carsView(); }
+    } catch(err) { toast(err.message, true); }
+  };
+}
+function carForm(c){
+  const f = $("#form"); let hero = c && c.hero_url || "", pdf = c && c.pdf_url || "";
+  f.innerHTML = `<div class="card"><h3>${c ? "Edit car" : "Add a car"}</h3>
+    <label>Car name *</label><input type="text" id="c_n" maxlength="40" placeholder="e.g. XUV 7XO" value="${esc(c ? c.name : "")}">
+    <label>Type *</label><select id="c_k"><option value="pv" ${c && c.kind === "pv" ? "selected" : ""}>Petrol &amp; Diesel</option><option value="ev" ${c && c.kind === "ev" ? "selected" : ""}>Electric</option></select>
+    <label>Short line (optional)</label><input type="text" id="c_t" maxlength="40" placeholder="e.g. 7-seat SUV" value="${esc(c ? c.tag : "")}">
+    <label>Brochure PDF *</label><input type="file" id="c_f" accept="application/pdf"><div class="small" id="c_fp"></div>
+    <label>Car photo (optional)</label>${picker("c_i")}<p class="small">A clear side or three-quarter view of the car.</p>
+    <div class="actions"><button class="pri" id="c_save">Save car</button><button id="c_x">Cancel</button></div></div>`;
+  const drawP = () => { $("#c_fp").innerHTML = pdf ? `Brochure attached: ${esc(pdfName(pdf))} · <a href="${esc(vu(pdf))}" target="_blank" rel="noopener" style="color:var(--red)">Open</a> · <a href="#" id="c_fx" style="color:var(--red)">Remove</a>. Choose a new file to replace it.` : "No brochure yet. Choose a PDF file."; const x = $("#c_fx"); if (x) x.onclick = e => { e.preventDefault(); pdf = ""; drawP(); }; };
+  const draw = () => { $("#c_i-p").innerHTML = hero ? `<div><img src="${esc(vu(hero))}" alt=""><button data-x>×</button></div>` : ""; };
+  drawP(); draw(); $("#c_i-p").onclick = e => { if (e.target.closest("[data-x]")) { hero = ""; draw(); } };
+  $("#c_x").onclick = () => f.innerHTML = ""; f.scrollIntoView({behavior:"smooth"});
+  $("#c_save").onclick = async e => {
+    const b = e.currentTarget, name = $("#c_n").value.trim(); if (!name) return toast("Enter the car name", true);
+    busy(b, true);
+    try {
+      const fi = $("#c_i").files[0]; if (fi) hero = await uploadImage(fi, "cars", 900);
+      const fp = $("#c_f").files[0]; if (fp) { if (fp.size > 40e6) throw new Error("This PDF is too big (max 40 MB). Please compress it first."); pdf = await upload(fp, "brochure", "pdf"); }
+      const row = {name, kind:$("#c_k").value, tag:$("#c_t").value.trim(), hero_url:hero || null, pdf_url:pdf || null};
+      if (c) Object.assign(c, row);
+      else { let key = slug(name) || "car"; const taken = new Set(D.cars.map(x => x.key)); if (taken.has(key)) { let n = 2; while (taken.has(key + "_" + n)) n++; key += "_" + n; } D.cars.push(Object.assign({id:uid(), key, active:true, created_at:new Date().toISOString()}, row)); }
+      await persist(); toast(pdf ? "Car saved" : "Car saved (no brochure yet, it shows “coming soon”)"); carsView();
+    } catch(err) { toast(err.message, true); busy(b, false); }
+  };
+}
+
+/* ---------- publish ---------- */
+const usedPaths = () => { const u = new Set(); D.offers.forEach(o => { u.add(o.image_url); u.add(o.pdf_url); }); D.cars.forEach(c => { u.add(c.hero_url); u.add(c.pdf_url); }); return [...u].filter(p => p && FILES[p]); };
+const siteDataText = () => "/* Written by the admin page. Do not edit by hand. */\nwindow.SITEDATA = " + JSON.stringify({version:2, offers:D.offers, cars:D.cars, items:[], settings:D.settings.filter(x => x.key === "shop" || x.key === "home"), nextNum:1}, null, 1) + ";\n";
+const CRC = (() => { const t = []; for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return u8 => { let c = 0xFFFFFFFF; for (let i = 0; i < u8.length; i++) c = t[(c ^ u8[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }; })();
+function makeZip(entries){
+  const enc = new TextEncoder(), parts = [], central = []; let off = 0; const d = new Date();
+  const time = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1), date = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+  for (const e of entries) {
+    const name = enc.encode(e.name), crc = CRC(e.data), sz = e.data.length;
+    const h = new DataView(new ArrayBuffer(30)); h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint16(8, 0, true); h.setUint16(10, time, true); h.setUint16(12, date, true); h.setUint32(14, crc, true); h.setUint32(18, sz, true); h.setUint32(22, sz, true); h.setUint16(26, name.length, true); h.setUint16(28, 0, true);
+    parts.push(h.buffer, name, e.data);
+    const c = new DataView(new ArrayBuffer(46)); c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true); c.setUint16(10, 0, true); c.setUint16(12, time, true); c.setUint16(14, date, true); c.setUint32(16, crc, true); c.setUint32(20, sz, true); c.setUint32(24, sz, true); c.setUint16(28, name.length, true); c.setUint32(42, off, true);
+    central.push(c.buffer, name); off += 30 + name.length + sz;
+  }
+  const csz = central.reduce((a, b) => a + (b.byteLength || b.length), 0), end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true); end.setUint16(8, entries.length, true); end.setUint16(10, entries.length, true); end.setUint32(12, csz, true); end.setUint32(16, off, true);
+  return new Blob([...parts, ...central, end.buffer], {type:"application/zip"});
+}
+async function buildEntries(){
+  const enc = new TextEncoder(), out = [{name:"site-data.js", data:enc.encode(siteDataText())}];
+  for (const p of usedPaths()) out.push({name:p, data:new Uint8Array(await FILES[p].arrayBuffer())});
+  return out;
+}
+async function reloadLatest(){
+  if (!ghCfg()) return toast("Connect to GitHub first (Publish changes → Connect). Then this can load your live website.", true);
+  if (dirty && !confirm("You have unpublished changes. Loading the latest will throw them away. Continue?")) return;
+  if (!(await loadLive())) return toast("Could not load the latest from GitHub. Check your connection and token.", true);
+  fromSiteData(); try { await idbPut("state", {D, FILES, dirty:false}); } catch(e) {} badge(); shell(); toast("Loaded the latest version of the website.");
+}
+$("#reload").onclick = reloadLatest;
+function modal(html){ let m = $("#modal"); if (!m) { m = document.createElement("div"); m.id = "modal"; document.body.appendChild(m); } m.innerHTML = '<div class="mbox">' + html + '</div>'; m.style.display = "flex"; m.onclick = e => { if (e.target === m) m.style.display = "none"; }; return m; }
+/* ---------- one-click publish to GitHub (Netlify then updates the website) ---------- */
+const GH_API = (() => { try { return localStorage.getItem("mm-gh-api") || "https://api.github.com"; } catch(e) { return "https://api.github.com"; } })();
+const ghCfg = () => { try { return JSON.parse(localStorage.getItem("mm-gh") || "null"); } catch(e) { return null; } };
+const setViewLink = () => { const a = document.getElementById("viewSite"), c = ghCfg(); if (a) a.href = (c && c.site) ? c.site : "site/index.html"; };
+const ghStore = c => { try { if (c) localStorage.setItem("mm-gh", JSON.stringify(c)); else localStorage.removeItem("mm-gh"); } catch(e) {} };
+async function gh(cfg, method, path, body){
+  const r = await fetch(GH_API + path, {method, headers:{Authorization:"Bearer " + cfg.token, Accept:"application/vnd.github+json", "Content-Type":"application/json"}, body:body ? JSON.stringify(body) : undefined});
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) { const e = new Error(r.status === 401 ? "GitHub did not accept the token. Create a new token and connect again." : r.status === 403 || r.status === 404 ? "GitHub says no access. Check the repository name and that the token has “Contents: Read and write” for it." : (j.message || "GitHub error " + r.status)); e.status = r.status; throw e; }
+  return j;
+}
+const b64 = u8 => { let s = ""; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(s); };
+const ghFolder = c => (c.folder || "").replace(/^\/+|\/+$/g, "");
+const ghPath = (c, p) => (ghFolder(c) ? ghFolder(c) + "/" : "") + p;
+async function ghCheck(c){
+  const repo = await gh(c, "GET", "/repos/" + c.repo);
+  try { await gh(c, "GET", "/repos/" + c.repo + "/contents/" + ghPath(c, "index.html").split("/").map(encodeURIComponent).join("/") + "?ref=" + encodeURIComponent(repo.default_branch)); }
+  catch(e) { if (e.status === 404 || e.status === 403) throw new Error("Connected, but I can't find index.html in that folder. Check the “folder” box."); throw e; }
+  return repo.default_branch;
+}
+async function ghPublish(c, status){
+  const branch = await ghCheck(c); const R = "/repos/" + c.repo;
+  status("Preparing files…"); const entries = await buildEntries();
+  const ref = await gh(c, "GET", R + "/git/ref/heads/" + branch), head = ref.object.sha;
+  const commit = await gh(c, "GET", R + "/git/commits/" + head);
+  const tree = [];
+  let n = 0;
+  for (const e of entries) { status("Uploading " + (++n) + " of " + entries.length + "…"); const b = await gh(c, "POST", R + "/git/blobs", {content:b64(e.data), encoding:"base64"}); tree.push({path:ghPath(c, e.name), mode:"100644", type:"blob", sha:b.sha}); }
+  status("Saving…");
+  const t = await gh(c, "POST", R + "/git/trees", {base_tree:commit.tree.sha, tree});
+  const cm = await gh(c, "POST", R + "/git/commits", {message:"Update from admin page", tree:t.sha, parents:[head]});
+  await gh(c, "PATCH", R + "/git/refs/heads/" + branch, {sha:cm.sha});
+}
+function connectDialog(after){
+  const c = ghCfg() || {};
+  const m = modal(`<h3>Connect to GitHub</h3><p class="hint">One time only. After this, Publish is one click.</p>
+    <label>Your repository (name/repo)</label><input type="text" id="g_r" placeholder="yourname/mahindra-accessories" value="${esc(c.repo || "")}" autocomplete="off">
+    <label>Folder that contains index.html (leave empty if it is at the top)</label><input type="text" id="g_f" placeholder="accessories-admin-package/Mahindra-Accessories/site" value="${esc(c.folder || "")}" autocomplete="off">
+    <label>Your live website link (so “View website” opens it)</label><input type="text" id="g_w" placeholder="https://your-site.netlify.app" value="${esc(c.site || "")}" autocomplete="off">
+    <label>Access token</label><input type="password" id="g_t" placeholder="github_pat_…" value="${esc(c.token || "")}" autocomplete="off">
+    <details style="margin-top:10px"><summary>How do I get a token? (2 minutes)</summary><div class="small" style="padding:0 14px 12px;line-height:1.7">
+      1. On github.com click your photo, then <b>Settings</b>.<br>2. At the bottom left click <b>Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</b>.<br>
+      3. Name it “Mahindra admin”. Set <b>Expiration</b> to the longest option.<br>4. Under <b>Repository access</b> choose <b>Only select repositories</b> and pick your accessories repo.<br>
+      5. Under <b>Permissions → Repository permissions</b> set <b>Contents</b> to <b>Read and write</b>.<br>6. Click <b>Generate token</b>, copy it and paste it above. It is shown only once.</div></details>
+    <p class="small">The token stays only in this browser on this computer. Don't share it.</p>
+    <div class="actions"><button class="pri" id="g_s">Save and test</button><button id="g_x">Cancel</button>${c.token ? '<button class="danger" id="g_d">Disconnect</button>' : ""}</div>`);
+  $("#g_x").onclick = () => m.style.display = "none";
+  if ($("#g_d")) $("#g_d").onclick = () => { ghStore(null); setViewLink(); m.style.display = "none"; toast("Disconnected"); };
+  $("#g_s").onclick = async e => {
+    const b = e.currentTarget, cfg = {repo:$("#g_r").value.trim().replace(/^https?:\/\/github\.com\//i, "").replace(/\.git$/, "").replace(/\/+$/, ""), folder:$("#g_f").value.trim(), token:$("#g_t").value.trim(), site:$("#g_w").value.trim().replace(/\/+$/, "")};
+    if (cfg.site && !/^https?:\/\//i.test(cfg.site)) return toast("The website link must start with https://", true);
+    if (!/^[\w.-]+\/[\w.-]+$/.test(cfg.repo)) return toast("Write the repository like yourname/repo-name", true);
+    if (!cfg.token) return toast("Paste your access token", true);
+    busy(b, true);
+    try { await ghCheck(cfg); ghStore(cfg); setViewLink(); m.style.display = "none"; toast("Connected ✔"); if (after) after(); } catch(err) { toast(err.message, true); } finally { busy(b, false); }
+  };
+}
+function publishDialog(){
+  const cfg = ghCfg();
+  const m = modal(`<h3>Publish your changes</h3>
+    <p class="hint">One click puts your changes on the live website. It is ready about 1–2 minutes later.</p>
+    ${cfg ? `<button class="pri" id="gp">Publish to website</button><p class="small" id="gs">Sending to <b>${esc(cfg.repo)}</b>. <a href="#" id="gc" style="color:var(--red)">Change</a></p>` : '<button class="pri" id="gc2">Connect to GitHub (one time)</button><p class="small">Needed once, so this page is allowed to update your website.</p>'}
+    <details style="margin-top:12px"><summary>Other ways (no GitHub)</summary><div style="padding:0 14px 14px">
+      ${window.showDirectoryPicker ? '<button id="pf">Save into my “site” folder</button> ' : ""}<button id="pz">Download as zip</button>
+      <p class="small">Then upload the changed files yourself.</p></div></details>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><button class="sm danger" id="pr">Discard my unpublished changes</button> <button class="sm" id="pc">Close</button>`);
+  $("#pc").onclick = () => m.style.display = "none";
+  if ($("#gc2")) $("#gc2").onclick = () => connectDialog(publishDialog);
+  if ($("#gc")) $("#gc").onclick = e => { e.preventDefault(); connectDialog(publishDialog); };
+  if ($("#gp")) $("#gp").onclick = async e => {
+    const b = e.currentTarget; b.disabled = true; const st = t => { $("#gs").textContent = t; };
+    try { await ghPublish(cfg, st); dirty = false; badge(); await idbPut("state", {D, FILES, dirty}); m.style.display = "none"; modal('<h3>Published ✔</h3><p class="hint">Your changes are on their way. The website updates in about 1–2 minutes. Refresh the live site then to see them.</p><button class="pri" onclick="document.getElementById(\'modal\').style.display=\'none\'">Done</button>'); }
+    catch(err) { b.disabled = false; $("#gs").textContent = "Not published."; toast(err.message, true); }
+  };
+  $("#pz").onclick = async () => { try { const blob = makeZip(await buildEntries()), a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "site-update.zip"; document.body.appendChild(a); a.click(); a.remove(); toast("Zip downloaded"); } catch(err) { toast(err.message, true); } };
+  if ($("#pf")) $("#pf").onclick = async () => {
+    try {
+      const dir = await window.showDirectoryPicker({mode:"readwrite"});
+      try { await dir.getFileHandle("index.html"); } catch(e) { throw new Error("That is not the site folder. Pick the folder that contains index.html."); }
+      const wr = async (h, data) => { const w = await h.createWritable(); await w.write(data); await w.close(); };
+      await wr(await dir.getFileHandle("site-data.js", {create:true}), siteDataText());
+      const up = await dir.getDirectoryHandle("uploads", {create:true});
+      for (const p of usedPaths()) await wr(await up.getFileHandle(p.split("/").pop(), {create:true}), FILES[p]);
+      dirty = false; badge(); await idbPut("state", {D, FILES, dirty}); m.style.display = "none"; toast("Saved into the site folder. Now upload it.");
+    } catch(err) { if (err.name !== "AbortError") toast(err.message, true); }
+  };
+  $("#pr").onclick = async () => { if (!confirm("Throw away everything you changed since the last publish?")) return; try { await idbPut("state", null); } catch(e) {} await loadLive(); fromSiteData(); m.style.display = "none"; shell(); toast("Back to the published version"); };
+}
+$("#pub").onclick = publishDialog;
+window.addEventListener("beforeunload", e => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
+setViewLink();
+(async () => { await initData(); shell(); })();
+</script>
+</body>
+</html>
